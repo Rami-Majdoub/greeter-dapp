@@ -13,15 +13,18 @@ export class AppComponent {
     public contractService_: ContractService 
   ){}
   
+  account = 'not connected';
   async connect(){
-    console.log(await this.contractService_.connectAccount());
+    this.account = await this.contractService_.connectAccount();
   }
   
   async get(){
-    console.log(await this.contractService_.getGreet());
+    this.currentGreetValue = await this.contractService_.getGreet();
   }
   
+  currentGreetValue = '';
+  newGreetValue = '';
   async set(){
-    await this.contractService_.setGreet();
+    await this.contractService_.setGreet(this.newGreetValue);
   }
 }
