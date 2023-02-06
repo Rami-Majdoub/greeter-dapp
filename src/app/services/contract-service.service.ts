@@ -36,7 +36,7 @@ export class ContractService {
   }
   
   async getGreet(): Promise<string> {
-    return await this.contract.greet();
+    return await this.contract.greeting();
   }
   
   async setGreet(newVal: string) {
